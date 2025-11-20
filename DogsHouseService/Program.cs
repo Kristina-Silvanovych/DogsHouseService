@@ -21,7 +21,7 @@ namespace DogsHouseService
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            // DbContext (SQLite for demo)
+            // DbContext (SQLite)
             builder.Services.AddDbContext<DogsDbContext>(options =>
                 options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection") ?? "Data Source=dogs.db"));
 
@@ -41,7 +41,7 @@ namespace DogsHouseService
                 db.Database.EnsureCreated();
             }
 
-            // Configure the HTTP request pipeline.
+            // Configure the HTTP request pipeline
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
